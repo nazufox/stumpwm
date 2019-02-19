@@ -1,6 +1,5 @@
 (in-package :stumpwm)
 
-
 (load-module "cpu")
 (load-module "net")
 (load-module "battery-portable")

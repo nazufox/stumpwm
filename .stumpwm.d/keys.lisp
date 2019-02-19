@@ -13,13 +13,13 @@
 (define-key *top-map* (kbd "XF86MonBrightnessUp")   "bright-up")
 (define-key *top-map* (kbd "XF86MonBrightnessDown") "bright-down")
 
+(define-key *top-map* (kbd "Print") "print-screen")
+
 
 ;;; *root-map*
 
 (define-key *root-map* (kbd "c")   "exec termite")
 (define-key *root-map* (kbd "C-c") "exec termite")
-
-(define-key *root-map* (kbd "Print") "print-screen")
 
 (define-key *root-map* (kbd "s-l") "lock-screen")
 

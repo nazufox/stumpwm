@@ -27,6 +27,8 @@
         " ^6*%l" ; net
         battery-mode-string)
 
-      *mouse-focus-policy* :sloppy)
+      *mouse-focus-policy* :sloppy
+
+      *mode-line-position* :bottom)
 
 (enable-mode-line (current-screen) (current-head) t)

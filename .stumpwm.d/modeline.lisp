@@ -28,9 +28,10 @@
   (remove #\Newline (run-shell-command (format nil "date +\"~a\"" *time-modeline-string*) t)))
 
 (setf *screen-mode-line-format*
-      (list "^B^3%g^n^b|%W|^> "
-            "| "
-            (if (probe-file "/sys/class/power_supply/BAT0") "^7*%B" "")
+      (list "^B^3%g^n^b|"
+            '(:eval (when (group-windows (current-group)) "%W|"))
+            "^> "
+            (if (probe-file "/sys/class/power_supply/BAT0") "| ^7*%B" "")
             " | ^B"
             '(:eval (get-date-modeline))
             " "))

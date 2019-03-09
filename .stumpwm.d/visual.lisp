@@ -12,10 +12,7 @@
 
 (set-normal-gravity :bottom)
 
-(setf *message-window-gravity* :center
-      *input-window-gravity* :center
-
-      *window-info-format* (format nil "^>^B^5*%c ^b^6%w^7*~%%t")
+(setf *window-info-format* (format nil "^>^B^5*%c ^b^6%w^7*~%%t")
 
       *time-format-string-default* (format nil "^5*%H:%M:%S~%^2*%A~%^7%d %B")
 

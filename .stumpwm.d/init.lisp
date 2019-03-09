@@ -11,4 +11,5 @@
 (load-stumpwm-conf "backlight.lisp")
 (load-stumpwm-conf "commands.lisp")
 (load-stumpwm-conf "keys.lisp")
+(load-stumpwm-conf "bar.lisp")
 (load-stumpwm-conf "visual.lisp")

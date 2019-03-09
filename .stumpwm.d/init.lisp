@@ -3,8 +3,9 @@
 (set-module-dir
  (merge-pathnames #P".stumpwm.d/stumpwm-contrib/" (user-homedir-pathname)))
 
+(defvar *stumpwm-dir* (merge-pathnames #P".stumpwm.d/" (user-homedir-pathname)))
 (defun load-stumpwm-conf (pathspec)
-  (load (merge-pathnames pathspec (merge-pathnames #P".stumpwm.d/" (user-homedir-pathname)))))
+  (load (merge-pathnames pathspec *stumpwm-dir*)))
 
 (load-stumpwm-conf "audio.lisp")
 (load-stumpwm-conf "backlight.lisp")

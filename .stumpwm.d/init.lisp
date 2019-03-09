@@ -1,5 +1,12 @@
 (in-package :stumpwm)
 
+(ql:quickload '(swank) :silent t)
+(swank-loader:init)
+(swank:create-server :port 4005 :dont-close t)
+
+(set-normal-gravity :center)
+(setf *mouse-focus-policy* :sloppy)
+
 (set-module-dir
  (merge-pathnames #P".stumpwm.d/stumpwm-contrib/" (user-homedir-pathname)))
 
@@ -12,4 +19,4 @@
 (load-stumpwm-conf "commands.lisp")
 (load-stumpwm-conf "keys.lisp")
 (load-stumpwm-conf "bar.lisp")
-(load-stumpwm-conf "visual.lisp")
+(load-stumpwm-conf "modeline.lisp")

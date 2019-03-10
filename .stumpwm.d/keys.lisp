@@ -24,3 +24,6 @@
 (define-key *root-map* (kbd "s-l") "lock-screen")
 
 (define-key *root-map* (kbd "F12") "detect-submonitor")
+
+(define-key *root-map* (kbd "RET") "show-menu")
+(define-key *root-map* (kbd "s-RET") "show-menu")

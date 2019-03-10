@@ -13,7 +13,7 @@
 (setf *mouse-focus-policy* :sloppy)
 
 (load-module "ttf-fonts")
-(xft:cache-fonts)
+;;(xft:cache-fonts)
 (set-font (make-instance 'xft:font :family "M+ 1mn" :subfamily "Regular" :size 12))
 
 (defvar *stumpwm-dir* (merge-pathnames #P".stumpwm.d/" (user-homedir-pathname)))

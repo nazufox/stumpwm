@@ -2,7 +2,7 @@
 
 (set-fg-color "Gray100")
 (set-bg-color "Gray20")
-(set-border-color "Gray100")
+(set-border-color "Gray30")
 (set-msg-border-width 1)
 (setf *message-window-padding* 20)
 (setf *timeout-wait* 5)

@@ -27,3 +27,4 @@
 (load-stumpwm-conf "keys.lisp")
 (load-stumpwm-conf "bar.lisp")
 (load-stumpwm-conf "modeline.lisp")
+(load-stumpwm-conf "windows.lisp")

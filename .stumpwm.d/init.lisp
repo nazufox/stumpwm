@@ -9,7 +9,6 @@
 (swank-loader:init)
 (swank:create-server :port 4005 :dont-close t)
 
-(set-normal-gravity :center)
 (setf *mouse-focus-policy* :sloppy)
 
 (load-module "ttf-fonts")

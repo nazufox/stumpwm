@@ -37,6 +37,8 @@
             " "))
 
 (setf *mode-line-border-width* 0)
+(setf *mode-line-pad-x* 3)
+(setf *mode-line-pad-y* 3)
 (setf *mode-line-background-color* "Gray20")
 (setf *mode-line-foreground-color* "Gray50")
 

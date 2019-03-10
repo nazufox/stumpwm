@@ -27,4 +27,5 @@
 (load-stumpwm-conf "bar.lisp")
 (load-stumpwm-conf "modeline.lisp")
 (load-stumpwm-conf "windows.lisp")
+(load-stumpwm-conf "frames.lisp")
 (load-stumpwm-conf "groups.lisp")

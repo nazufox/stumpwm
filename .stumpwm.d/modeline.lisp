@@ -21,7 +21,6 @@
 
 (setf *group-format* "  %t  ")
 (setf *window-format* "%m%n%s%20t ")
-(setf *mode-line-timeout* 5)
 
 (setf *time-modeline-string* "%D %k:%M")
 
@@ -38,12 +37,13 @@
             " "
             ))
 
+(setf *mode-line-position* :bottom)
 (setf *mode-line-border-width* 5)
 (setf *mode-line-pad-x* 0)
 (setf *mode-line-pad-y* 4)
 (setf *mode-line-background-color* "Gray20")
 (setf *mode-line-foreground-color* "Gray50")
-
-(setf *mode-line-position* :bottom)
+(setf *mode-line-border-color* "Gray30")
+(setf *mode-line-timeout* 5)
 
 (enable-mode-line (current-screen) (current-head) t)

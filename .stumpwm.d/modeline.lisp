@@ -38,16 +38,12 @@
             " "
             ))
 
-(setf *mode-line-border-width* 0)
-(setf *mode-line-pad-x* 3)
-(setf *mode-line-pad-y* 3)
+(setf *mode-line-border-width* 5)
+(setf *mode-line-pad-x* 0)
+(setf *mode-line-pad-y* 4)
 (setf *mode-line-background-color* "Gray20")
 (setf *mode-line-foreground-color* "Gray50")
 
 (setf *mode-line-position* :bottom)
 
 (enable-mode-line (current-screen) (current-head) t)
-
-(defun restart-mode-line (screen head)
-  (enable-mode-line screen head nil)
-  (enable-mode-line screen head t))

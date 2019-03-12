@@ -27,17 +27,20 @@
    (ppcre:scan-to-strings
     "\\d+"
     (run-shell-command "free | grep 'Mem' | awk '{print $3/$2*100}'" t))
-   "%"))
+   "%%"))
+(defun get-hdd-usage-modeline ()
+  (remove #\Newline (run-shell-command "df / | head -n 2 | awk 'NR==2 {print $5}'" t)))
 
 (setf *screen-mode-line-format*
       (list " ^B^3%g^n^b | "                                        ; groups
             '(:eval (when (group-windows (current-group)) "%W |"))  ; windows
             "^>"
-            '(:eval (concat "  " (get-audio-modeline)))             ; audio
-            '(:eval (concat "  盛 " (get-backlight-modeline)))      ; backlight
             '(:eval (concat "   " (get-cpu-usage-modeline)))       ; cpu usage
             '(:eval (concat "   " (get-cpu-temp-modeline)))        ; cpu temperature
             '(:eval (concat "   " (get-mem-percentage-modeline)))  ; memory
+            '(:eval (concat "   " (get-hdd-usage-modeline)))       ; hdd usage
+            '(:eval (concat "  " (get-audio-modeline)))             ; audio
+            '(:eval (concat "  盛 " (get-backlight-modeline)))      ; backlight
             (if (probe-file "/sys/class/power_supply/BAT0")         ; battery
                 '(:eval (concat "  " (get-battery-modeline)))
                 "")

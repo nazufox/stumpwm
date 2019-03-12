@@ -22,22 +22,31 @@
 (setf *group-format* "  %t  ")
 (setf *window-format* "%m%n%s%20t ")
 
+(defun get-mem-percentage-modeline ()
+  (concat
+   (ppcre:scan-to-strings
+    "\\d+"
+    (run-shell-command "free | grep 'Mem' | awk '{print $3/$2*100}'" t))
+   "%"))
+
 (defun get-date-modeline ()
   (remove #\Newline (run-shell-command (format nil "date +\"%Y-%m-%d\"") t)))
 (defun get-time-modeline ()
   (remove #\Newline (run-shell-command (format nil "date +\"%k:%M\"") t)))
 
 (setf *screen-mode-line-format*
-      (list " ^B^3%g^n^b | "
-            '(:eval (when (group-windows (current-group)) "%W |"))
+      (list " ^B^3%g^n^b | "                                        ;; groups
+            '(:eval (when (group-windows (current-group)) "%W |"))  ;; windows
             "^>"
-            '(:eval (concat "  " (get-audio-modeline)))
-            '(:eval (concat "  " (get-backlight-modeline)))
-            (if (probe-file "/sys/class/power_supply/BAT0")
+            '(:eval (concat "  " (get-audio-modeline)))             ;; audio
+            '(:eval (concat "  " (get-backlight-modeline)))         ;; backlight
+            ;; cpu usage 
+            (if (probe-file "/sys/class/power_supply/BAT0")         ;; battery
                 '(:eval (concat "  " (get-battery-modeline)))
                 "")
-            '(:eval (concat "   " (get-date-modeline)))
-            '(:eval (concat "   " (get-time-modeline)))
+            '(:eval (concat "   " (get-mem-percentage-modeline)))  ;; memory
+            '(:eval (concat "   " (get-date-modeline)))            ;; calender
+            '(:eval (concat "   " (get-time-modeline)))            ;; clock
             " "
             ))
 

@@ -13,7 +13,7 @@
 
 (load-module "ttf-fonts")
 ;;(xft:cache-fonts)
-(set-font (make-instance 'xft:font :family "M+ 1mn" :subfamily "Regular" :size 12))
+(set-font (make-instance 'xft:font :family "Ricty Nerd Font" :subfamily "Regular" :size 13))
 
 (defvar *stumpwm-dir* (merge-pathnames #P".stumpwm.d/" (user-homedir-pathname)))
 (defun load-stumpwm-conf (pathspec)

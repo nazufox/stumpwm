@@ -31,8 +31,9 @@
       (list " ^B^3%g^n^b | "
             '(:eval (when (group-windows (current-group)) "%W |"))
             "^>"
+            '(:eval (concat "  " (get-audio-modeline)))
             (if (probe-file "/sys/class/power_supply/BAT0")
-                '(:eval (concat (get-battery-modeline) "^n"))
+                '(:eval (concat "  " (get-battery-modeline)))
                 "")
             '(:eval (concat "   " (get-date-modeline)))
             '(:eval (concat "   " (get-time-modeline)))

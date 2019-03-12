@@ -19,7 +19,7 @@
   (let ((vol (get-volume)))
     (concat
      (if (string= (get-mute) "off")
-         "ﱝ"
+         "婢"
          (cond
            ((>= vol 66) "墳")
            ((>= vol 33) "奔")

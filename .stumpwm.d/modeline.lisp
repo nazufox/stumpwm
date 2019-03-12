@@ -21,8 +21,7 @@
 (defun get-mem-percentage-modeline ()
   (concat
    (ppcre:scan-to-strings
-    "\\d+"
-    (run-shell-command "free | grep 'Mem' | awk '{print $3/$2*100}'" t))
+    "\\d+" (run-shell-command "free | grep 'Mem' | awk '{print $3/$2*100}'" t))
    "%%"))
 (defun get-hdd-usage-modeline ()
   (remove #\Newline (run-shell-command "df / | head -n 2 | awk 'NR==2 {print $5}'" t)))

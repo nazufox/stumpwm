@@ -1,13 +1,11 @@
 (in-package :stumpwm)
 
 (defun get-battery-percentage ()
-  (multiple-value-bind (val)
-      (parse-integer
-       (ppcre:scan-to-strings
-        "\\d+"
-        (run-shell-command
-         "upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep \"percentage\"" t)))
-    val))
+  (let ((val (ppcre:scan-to-strings
+              "\\d+"
+              (run-shell-command
+               "upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep \"percentage\"" t))))
+    (if val val "0")))
 
 (defun get-battey-state ()
   (remove
@@ -16,7 +14,8 @@
     "upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep 'state' | awk '{ print $2 }'" t)))
 
 (defun get-battery-modeline ()
-  (let ((percentage (get-battery-percentage)))
+  (let* ((percentage-str (get-battery-percentage))
+         (percentage (parse-integer percentage-str)))
     (concat
      (cond
        ((string= (get-battey-state) "discharging")
@@ -42,5 +41,5 @@
           ((>= percentage  0) "")))
        (t "?"))
      " "
-     (princ-to-string percentage)
+     percentage-str
      "%%")))

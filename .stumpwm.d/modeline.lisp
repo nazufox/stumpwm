@@ -30,19 +30,19 @@
    "%"))
 
 (setf *screen-mode-line-format*
-      (list " ^B^3%g^n^b | "                                        ;; groups
-            '(:eval (when (group-windows (current-group)) "%W |"))  ;; windows
+      (list " ^B^3%g^n^b | "                                        ; groups
+            '(:eval (when (group-windows (current-group)) "%W |"))  ; windows
             "^>"
-            '(:eval (concat "  " (get-audio-modeline)))             ;; audio
-            '(:eval (concat "  " (get-backlight-modeline)))         ;; backlight
-            ;; cpu usage 
-            ;; cpu temp 
-            (if (probe-file "/sys/class/power_supply/BAT0")         ;; battery
+            '(:eval (concat "  " (get-audio-modeline)))             ; audio
+            '(:eval (concat "  盛 " (get-backlight-modeline)))      ; backlight
+            '(:eval (concat "   " (get-cpu-usage-modeline)))       ; cpu usage
+            '(:eval (concat "   " (get-cpu-temp-modeline)))        ; cpu temperature
+            '(:eval (concat "   " (get-mem-percentage-modeline)))  ; memory
+            (if (probe-file "/sys/class/power_supply/BAT0")         ; battery
                 '(:eval (concat "  " (get-battery-modeline)))
                 "")
-            '(:eval (concat "   " (get-mem-percentage-modeline)))  ;; memory
-            '(:eval (concat "   " (get-date-modeline)))            ;; calender
-            '(:eval (concat "  " (get-time-modeline)))            ;; clock
+            '(:eval (concat "   " (get-date-modeline)))            ; calender
+            '(:eval (concat "  " (get-time-modeline)))              ; clock
             " "
             ))
 

@@ -28,6 +28,7 @@
 (load-stumpwm-conf "bar.lisp")
 (load-stumpwm-conf "battery.lisp")
 (load-stumpwm-conf "clock.lisp")
+(load-stumpwm-conf "cpu.lisp")
 (load-stumpwm-conf "modeline.lisp")
 (load-stumpwm-conf "windows.lisp")
 (load-stumpwm-conf "frames.lisp")

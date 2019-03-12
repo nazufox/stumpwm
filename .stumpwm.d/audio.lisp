@@ -30,7 +30,8 @@
 
 (defcommand mute-toggle () ()
   "Toggle the mute"
-  (run-shell-command "pactl set-sink-mute 0 toggle"))
+  (run-shell-command "pactl set-sink-mute 0 toggle")
+  (refresh-heads))
 
 (defcommand mic-toggle () ()
   "Toggle the mute of the microphone"

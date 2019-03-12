@@ -35,8 +35,8 @@
             '(:eval (concat "   " (get-cpu-temp-modeline)))        ; cpu temperature
             '(:eval (concat "   " (get-mem-percentage-modeline)))  ; memory
             '(:eval (concat "   " (get-hdd-usage-modeline)))       ; hdd usage
-            '(:eval (concat "  " (get-audio-modeline)))             ; audio
-            '(:eval (concat "  盛 " (get-backlight-modeline)))      ; backlight
+;;            '(:eval (concat "  " (get-audio-modeline)))             ; audio
+;;            '(:eval (concat "  盛 " (get-backlight-modeline)))      ; backlight
             (if (probe-file "/sys/class/power_supply/BAT0")         ; battery
                 '(:eval (concat "  " (get-battery-modeline)))
                 "")

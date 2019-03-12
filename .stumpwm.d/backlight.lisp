@@ -1,16 +1,15 @@
 (in-package :stumpwm)
 
 (defun get-backlight ()
-  (multiple-value-bind (backlight)
-      (parse-integer (ppcre:scan-to-strings "\\d+" (run-shell-command "xbacklight" t)))
-    backlight))
+  (let ((backlight (ppcre:scan-to-strings "\\d+" (run-shell-command "xbacklight" t))))
+    (if backlight backlight "100")))
 (defun set-backlight (value)
   (run-shell-command (format nil "xbacklight -set ~a" value)))
 
 (defun get-backlight-modeline ()
-  (concat (princ-to-string (get-backlight)) "%%"))
+  (concat (get-backlight) "%%"))
 
-(let ((backlight (get-backlight))
+(let ((backlight (parse-integer (get-backlight)))
       (inc-dec-value 5))
   (defcommand bright-up () ()
     "Increase the monitor brightness"

@@ -32,6 +32,7 @@
             '(:eval (when (group-windows (current-group)) "%W |"))
             "^>"
             '(:eval (concat "  " (get-audio-modeline)))
+            '(:eval (concat "  " (get-backlight-modeline)))
             (if (probe-file "/sys/class/power_supply/BAT0")
                 '(:eval (concat "  " (get-battery-modeline)))
                 "")

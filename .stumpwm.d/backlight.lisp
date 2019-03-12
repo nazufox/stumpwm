@@ -7,6 +7,9 @@
 (defun set-backlight (value)
   (run-shell-command (format nil "xbacklight -set ~a" value)))
 
+(defun get-backlight-modeline ()
+  (concat "盛 " (princ-to-string (get-backlight)) "%%"))
+
 (let ((backlight (get-backlight))
       (inc-dec-value 5))
   (defcommand bright-up () ()

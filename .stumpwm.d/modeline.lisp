@@ -29,11 +29,6 @@
     (run-shell-command "free | grep 'Mem' | awk '{print $3/$2*100}'" t))
    "%"))
 
-(defun get-date-modeline ()
-  (remove #\Newline (run-shell-command (format nil "date +\"%Y-%m-%d\"") t)))
-(defun get-time-modeline ()
-  (remove #\Newline (run-shell-command (format nil "date +\"%k:%M\"") t)))
-
 (setf *screen-mode-line-format*
       (list " ^B^3%g^n^b | "                                        ;; groups
             '(:eval (when (group-windows (current-group)) "%W |"))  ;; windows
@@ -46,7 +41,7 @@
                 "")
             '(:eval (concat "   " (get-mem-percentage-modeline)))  ;; memory
             '(:eval (concat "   " (get-date-modeline)))            ;; calender
-            '(:eval (concat "   " (get-time-modeline)))            ;; clock
+            '(:eval (concat "  " (get-time-modeline)))            ;; clock
             " "
             ))
 

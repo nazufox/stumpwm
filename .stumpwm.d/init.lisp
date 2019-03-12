@@ -10,6 +10,7 @@
 (swank:create-server :port 4005 :dont-close t)
 
 (setf *mouse-focus-policy* :sloppy)
+(setf *ignore-wm-inc-hints* t)
 
 (load-module "ttf-fonts")
 ;;(xft:cache-fonts)

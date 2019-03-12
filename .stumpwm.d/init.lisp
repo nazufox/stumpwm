@@ -25,6 +25,7 @@
 (load-stumpwm-conf "app-menu.lisp")
 (load-stumpwm-conf "keys.lisp")
 (load-stumpwm-conf "bar.lisp")
+(load-stumpwm-conf "battery.lisp")
 (load-stumpwm-conf "modeline.lisp")
 (load-stumpwm-conf "windows.lisp")
 (load-stumpwm-conf "frames.lisp")

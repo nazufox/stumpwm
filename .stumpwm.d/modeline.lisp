@@ -22,18 +22,20 @@
 (setf *group-format* "  %t  ")
 (setf *window-format* "%m%n%s%20t ")
 
-(setf *time-modeline-string* "%D %k:%M")
-
 (defun get-date-modeline ()
-  (remove #\Newline (run-shell-command (format nil "date +\"~a\"" *time-modeline-string*) t)))
+  (remove #\Newline (run-shell-command (format nil "date +\"%Y-%m-%d\"") t)))
+(defun get-time-modeline ()
+  (remove #\Newline (run-shell-command (format nil "date +\"%k:%M\"") t)))
 
 (setf *screen-mode-line-format*
       (list " ^B^3%g^n^b | "
             '(:eval (when (group-windows (current-group)) "%W |"))
             "^>"
-            (if (probe-file "/sys/class/power_supply/BAT0") "| %B^n " "")
-            "| "
-            '(:eval (get-date-modeline))
+            (if (probe-file "/sys/class/power_supply/BAT0")
+                '(:eval (concat (get-battery-modeline) "^n"))
+                "")
+            '(:eval (concat "   " (get-date-modeline)))
+            '(:eval (concat "   " (get-time-modeline)))
             " "
             ))
 

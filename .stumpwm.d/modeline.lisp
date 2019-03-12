@@ -36,6 +36,7 @@
             '(:eval (concat "  " (get-audio-modeline)))             ;; audio
             '(:eval (concat "  " (get-backlight-modeline)))         ;; backlight
             ;; cpu usage 
+            ;; cpu temp 
             (if (probe-file "/sys/class/power_supply/BAT0")         ;; battery
                 '(:eval (concat "  " (get-battery-modeline)))
                 "")

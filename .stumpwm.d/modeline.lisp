@@ -3,6 +3,7 @@
 (load-module "mycpu")
 (load-module "mymem")
 (load-module "myhdd")
+(load-module "mybattery")
 
 (setf *bar-med-color*  "^B")
 (setf *bar-hi-color*   "^B^3")
@@ -30,7 +31,7 @@
 ;;            '(:eval (concat "  " (get-audio-modeline)))             ; audio
 ;;            '(:eval (concat "  盛 " (get-backlight-modeline)))      ; backlight
             (if (probe-file "/sys/class/power_supply/BAT0")         ; battery
-                '(:eval (concat "  " (get-battery-modeline)))
+                "  %B"
                 "")
             '(:eval (concat "   " (get-date-modeline)))            ; calender
             '(:eval (concat "  " (get-time-modeline)))              ; clock

@@ -28,9 +28,8 @@
       (list " ^B^3%g^n^b | " ; groups
             '(:eval (when (group-windows (current-group)) "%W |")) ; windows
             "^>"
-            "   %c   %t   %m   %H" ; cpu, temp, mem, hdd
+            "   %c   %t   %m   %H  盛 %l" ; cpu, temp, mem, hdd, backlight
 ;;            '(:eval (concat "  " (get-audio-modeline))) ; audio
-;;            '(:eval (concat "  盛 " (get-backlight-modeline))) ; backlight
             (if (probe-file "/sys/class/power_supply/BAT0") ; battery
                 "  %B"
                 "")

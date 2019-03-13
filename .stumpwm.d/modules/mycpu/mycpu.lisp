@@ -1,4 +1,7 @@
-(in-package :stumpwm)
+(in-package #:mycpu)
+
+(add-screen-mode-line-formatter #\c 'fmt-cpu-usage)
+(add-screen-mode-line-formatter #\t 'fmt-cpu-temp)
 
 (defvar *acpi-thermal-zone*
   (let ((proc-dir (list-directory #P"/proc/acpi/thermal_zone/"))
@@ -65,11 +68,13 @@
                     prev-result (list cpu-result sys-result io-result)))))))
     (apply 'values prev-result)))
 
-(defun get-cpu-usage-modeline ()
+(defun fmt-cpu-usage (ml)
+  (declare (ignore ml))
   (let ((cpu (truncate (* 100 (current-cpu-usage)))))
-    (format nil "~d%%" cpu)))
+    (format nil "~d%" cpu)))
 
-(defun get-cpu-temp-modeline ()
+(defun fmt-cpu-temp (ml)
+  (declare (ignore ml))
   (format nil "~d℃"
           (case (car *acpi-thermal-zone*)
             (:procfs (parse-integer

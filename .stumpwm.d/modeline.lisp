@@ -1,5 +1,7 @@
 (in-package :stumpwm)
 
+(load-module "mycpu")
+
 (setf *bar-med-color*  "^B")
 (setf *bar-hi-color*   "^B^3")
 (setf *bar-crit-color* "^B^1")
@@ -30,8 +32,7 @@
       (list " ^B^3%g^n^b | "                                        ; groups
             '(:eval (when (group-windows (current-group)) "%W |"))  ; windows
             "^>"
-            '(:eval (concat "   " (get-cpu-usage-modeline)))       ; cpu usage
-            '(:eval (concat "   " (get-cpu-temp-modeline)))        ; cpu temperature
+            "   %c   %t"
             '(:eval (concat "   " (get-mem-percentage-modeline)))  ; memory
             '(:eval (concat "   " (get-hdd-usage-modeline)))       ; hdd usage
 ;;            '(:eval (concat "  " (get-audio-modeline)))             ; audio

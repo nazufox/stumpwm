@@ -2,6 +2,7 @@
 
 (load-module "mycpu")
 (load-module "mymem")
+(load-module "myhdd")
 
 (setf *bar-med-color*  "^B")
 (setf *bar-hi-color*   "^B^3")
@@ -28,8 +29,7 @@
       (list " ^B^3%g^n^b | "                                        ; groups
             '(:eval (when (group-windows (current-group)) "%W |"))  ; windows
             "^>"
-            "   %c   %t   %m"
-            '(:eval (concat "   " (get-hdd-usage-modeline)))       ; hdd usage
+            "   %c   %t   %m   %H"
 ;;            '(:eval (concat "  " (get-audio-modeline)))             ; audio
 ;;            '(:eval (concat "  盛 " (get-backlight-modeline)))      ; backlight
             (if (probe-file "/sys/class/power_supply/BAT0")         ; battery

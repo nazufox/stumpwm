@@ -4,6 +4,7 @@
 (load-module "mymem")
 (load-module "myhdd")
 (load-module "mybattery")
+(load-module "date-time")
 
 (setf *bar-med-color*  "^B")
 (setf *bar-hi-color*   "^B^3")
@@ -24,17 +25,16 @@
 (setf *window-format* "%m%n%s%20t ")
 
 (setf *screen-mode-line-format*
-      (list " ^B^3%g^n^b | "                                        ; groups
-            '(:eval (when (group-windows (current-group)) "%W |"))  ; windows
+      (list " ^B^3%g^n^b | " ; groups
+            '(:eval (when (group-windows (current-group)) "%W |")) ; windows
             "^>"
-            "   %c   %t   %m   %H"
-;;            '(:eval (concat "  " (get-audio-modeline)))             ; audio
-;;            '(:eval (concat "  盛 " (get-backlight-modeline)))      ; backlight
-            (if (probe-file "/sys/class/power_supply/BAT0")         ; battery
+            "   %c   %t   %m   %H" ; cpu, temp, mem, hdd
+;;            '(:eval (concat "  " (get-audio-modeline))) ; audio
+;;            '(:eval (concat "  盛 " (get-backlight-modeline))) ; backlight
+            (if (probe-file "/sys/class/power_supply/BAT0") ; battery
                 "  %B"
                 "")
-            '(:eval (concat "   " (get-date-modeline)))            ; calender
-            '(:eval (concat "  " (get-time-modeline)))              ; clock
+            "   %d  %O"
             " "
             ))
 

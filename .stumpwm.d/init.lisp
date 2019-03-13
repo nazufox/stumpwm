@@ -4,7 +4,7 @@
 (ql:quickload :clx-truetype)
 
 (set-module-dir
- (merge-pathnames #P".stumpwm.d/stumpwm-contrib/" (user-homedir-pathname)))
+ (merge-pathnames #P".stumpwm.d/modules/" (user-homedir-pathname)))
 
 (swank-loader:init)
 (swank:create-server :port 4005 :dont-close t)

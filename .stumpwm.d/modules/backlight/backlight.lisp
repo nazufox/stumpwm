@@ -19,8 +19,15 @@
   (declare (ignore ml))
   (format nil "~d%" (current-brightness-pcent)))
 
+(defun echo-brightness (brightness)
+  (echo (princ-to-string brightness)))
+
 (defcommand bright-up () ()
-  (set-brightness (+ (current-brightness-pcent) 5)))
+  (let ((brightness-pcent (+ (current-brightness-pcent) 5)))
+    (set-brightness brightness-pcent)
+    (echo-brightness brightness-pcent)))
 
 (defcommand bright-down () ()
-  (set-brightness (- (current-brightness-pcent) 5)))
+  (let ((brightness-pcent (- (current-brightness-pcent) 5)))
+    (set-brightness brightness-pcent)
+    (echo-brightness brightness-pcent)))

@@ -1,6 +1,7 @@
 (in-package :stumpwm)
 
 (load-module "mycpu")
+(load-module "mymem")
 
 (setf *bar-med-color*  "^B")
 (setf *bar-hi-color*   "^B^3")
@@ -20,11 +21,6 @@
 (setf *group-format* "  %t  ")
 (setf *window-format* "%m%n%s%20t ")
 
-(defun get-mem-percentage-modeline ()
-  (concat
-   (ppcre:scan-to-strings
-    "\\d+" (run-shell-command "free | grep 'Mem' | awk '{print $3/$2*100}'" t))
-   "%%"))
 (defun get-hdd-usage-modeline ()
   (remove #\Newline (run-shell-command "df / | head -n 2 | awk 'NR==2 {print $5}'" t)))
 
@@ -32,8 +28,7 @@
       (list " ^B^3%g^n^b | "                                        ; groups
             '(:eval (when (group-windows (current-group)) "%W |"))  ; windows
             "^>"
-            "   %c   %t"
-            '(:eval (concat "   " (get-mem-percentage-modeline)))  ; memory
+            "   %c   %t   %m"
             '(:eval (concat "   " (get-hdd-usage-modeline)))       ; hdd usage
 ;;            '(:eval (concat "  " (get-audio-modeline)))             ; audio
 ;;            '(:eval (concat "  盛 " (get-backlight-modeline)))      ; backlight

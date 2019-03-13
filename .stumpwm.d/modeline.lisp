@@ -22,9 +22,6 @@
 (setf *group-format* "  %t  ")
 (setf *window-format* "%m%n%s%20t ")
 
-(defun get-hdd-usage-modeline ()
-  (remove #\Newline (run-shell-command "df / | head -n 2 | awk 'NR==2 {print $5}'" t)))
-
 (setf *screen-mode-line-format*
       (list " ^B^3%g^n^b | "                                        ; groups
             '(:eval (when (group-windows (current-group)) "%W |"))  ; windows

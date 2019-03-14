@@ -38,7 +38,7 @@
 (setf *mode-line-position* :bottom)
 (setf *mode-line-border-width* 0)
 (setf *mode-line-pad-x* 0)
-(setf *mode-line-pad-y* 2)
+(setf *mode-line-pad-y* 4)
 (setf *mode-line-background-color* "Gray20")
 (setf *mode-line-foreground-color* "Gray50")
 (setf *mode-line-border-color* "Gray30")

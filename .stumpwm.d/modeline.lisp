@@ -16,7 +16,7 @@
         "green"
         "#FFFC78"
         "blue"
-        "magenta"
+        "#ef708e"
         "cyan"
         "white"))
 (update-color-map (current-screen))

@@ -7,6 +7,7 @@
  (merge-pathnames #P".stumpwm.d/modules/" (user-homedir-pathname)))
 
 (load-module "backlight")
+(load-module "audio")
 
 (setf *mouse-focus-policy* :sloppy)
 (setf *ignore-wm-inc-hints* t)
@@ -19,7 +20,6 @@
 (defun load-stumpwm-conf (pathspec)
   (load (merge-pathnames pathspec *stumpwm-dir*)))
 
-(load-stumpwm-conf "audio.lisp")
 (load-stumpwm-conf "commands.lisp")
 (load-stumpwm-conf "app-menu.lisp")
 (load-stumpwm-conf "keys.lisp")

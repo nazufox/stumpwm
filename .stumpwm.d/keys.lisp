@@ -7,8 +7,8 @@
 
 (define-key *top-map* (kbd "XF86AudioRaiseVolume") "vol-up")
 (define-key *top-map* (kbd "XF86AudioLowerVolume") "vol-down")
-(define-key *top-map* (kbd "XF86AudioMute")        "mute-toggle")
-(define-key *top-map* (kbd "XF86AudioMicMute")     "mic-toggle")
+(define-key *top-map* (kbd "XF86AudioMute")        "toggle-mute")
+(define-key *top-map* (kbd "XF86AudioMicMute")     "toggle-mic")
 
 (define-key *top-map* (kbd "XF86MonBrightnessUp")   "bright-up")
 (define-key *top-map* (kbd "XF86MonBrightnessDown") "bright-down")

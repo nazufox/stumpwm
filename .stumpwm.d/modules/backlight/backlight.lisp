@@ -23,11 +23,11 @@
   (echo (princ-to-string brightness)))
 
 (defcommand bright-up () ()
-  (let ((brightness-pcent (+ (current-brightness-pcent) 5)))
+  (let ((brightness-pcent (min (+ (current-brightness-pcent) 5) 100)))
     (set-brightness brightness-pcent)
     (echo-brightness brightness-pcent)))
 
 (defcommand bright-down () ()
-  (let ((brightness-pcent (- (current-brightness-pcent) 5)))
+  (let ((brightness-pcent (max (- (current-brightness-pcent) 5) 0)))
     (set-brightness brightness-pcent)
     (echo-brightness brightness-pcent)))

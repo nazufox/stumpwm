@@ -20,7 +20,7 @@
 
 (defun fmt-audio (ml)
   (declare (ignore ml))
-  (aref *audio-status* 0))
+  (format nil "~a%" (aref *audio-status* 0)))
 
 (defun volume-icon (volume)
   (cond ((>= volume 66) #\墳)
@@ -36,7 +36,7 @@
   (declare (ignore ml))
   (let ((volume (aref *audio-status* 0))
         (mute   (aref *audio-status* 1)))
-    (format nil "~c ~a" (status-icon (parse-integer volume) mute) volume)))
+    (format nil "~c ~a%" (status-icon (parse-integer volume) mute) volume)))
 
 (defcommand toggle-mute () ()
   (status-control))

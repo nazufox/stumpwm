@@ -44,8 +44,13 @@
 (defcommand toggle-mic () ()
   (run-shell-command "pactl set-source-mute 1 toggle"))
 
+(defun mute-p (status)
+  (string= (aref status 1) "off"))
+
 (defcommand vol-up () ()
+  (when (mute-p *audio-status*) (status-control))
   (status-control :amount "5%+"))
 
 (defcommand vol-down () ()
+  (when (mute-p *audio-status*) (status-control))
   (status-control :amount "5%-"))

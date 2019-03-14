@@ -9,13 +9,7 @@
 (load-module "backlight")
 (load-module "audio")
 
-(defparameter *startup-messages*
-  '("Let the hacking commence!"
-    "Hacks and glory await!"
-    "Hack and be merry!"
-    "Your hacking starts... NOW!"))
-
-(setf *startup-message* (nth (random (length *startup-messages*)) *startup-messages*))
+(setf *startup-message* nil)
 (setf *mouse-focus-policy* :sloppy)
 (setf *ignore-wm-inc-hints* t)
 

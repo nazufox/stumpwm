@@ -14,3 +14,16 @@
 (set-normal-gravity :center)
 (set-maxsize-gravity :center)
 (gravity :center)
+
+(defun reorder-windows-handler (win)
+  (let* ((group-windows (group-windows (current-group)))
+         (sorted-windows (if (find win group-windows)
+                             (append (remove win (sort-windows group-windows)) (list win))
+                             (sort-windows group-windows))))
+    (do ((num 1 (+ num 1))
+         (windows sorted-windows (cdr windows)))
+        ((null (car windows)))
+      (setf (window-number (car windows)) num))))
+
+(add-hook *new-window-hook* 'reorder-windows-handler)
+(add-hook *destroy-window-hook* 'reorder-windows-handler)

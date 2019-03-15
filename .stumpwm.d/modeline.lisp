@@ -22,7 +22,7 @@
 (update-color-map (current-screen))
 
 (setf *group-format* "  %t  ")
-(setf *window-format* "%m%n%s%20t ")
+(setf *window-format* "%m%n%s%15t ")
 
 (setf *screen-mode-line-format*
       (list " ^B^3%g^n | " ; groups

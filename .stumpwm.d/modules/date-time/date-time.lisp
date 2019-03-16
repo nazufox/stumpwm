@@ -19,5 +19,5 @@
 
 (defun fmt-time-with-icon (ml)
   (declare (ignore ml))
-  (let ((hour (rem (getf (time-plist) :hour) 12)))
+  (let ((hour (rem (getf (stumpwm::time-plist) :hour) 12)))
     (format nil "~c ~a" (time-icon (if (zerop hour) 12 hour)) (time-format "%R"))))

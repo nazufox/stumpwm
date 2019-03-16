@@ -26,8 +26,8 @@
 (setf *window-format* "%m%n%s%15t ")
 
 (setf *screen-mode-line-format*
-      (list " ^B^3%g^n | " ; groups
-            '(:eval (when (group-windows (current-group)) "%W |")) ; windows
+      (list " ^B^3%g^n^b | " ; groups
+            '(:eval (when (group-windows (current-group)) "^B%W^b |")) ; windows
             "^>"
             "^B   %c   %t   %m   %H  %A  盛 %l" ; cpu, temp, mem, hdd, audio, backlight
             (if (probe-file "/sys/class/power_supply/BAT0") ; battery

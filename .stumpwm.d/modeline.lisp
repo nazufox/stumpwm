@@ -1,5 +1,6 @@
 (in-package :stumpwm)
 
+;;(load-module "swm-gaps")
 (load-module "mycpu")
 (load-module "mymem")
 (load-module "myhdd")
@@ -44,6 +45,10 @@
 (setf *mode-line-border-color* "#f8a8bb")
 (setf *mode-line-timeout* 5)
 
+;;(setf swm-gaps:*inner-gaps-size* 10)
+;;(setf swm-gaps:*outer-gaps-size* 10)
+
 (enable-mode-line (current-screen) (current-head) t)
+;;(swm-gaps:toggle-gaps)
 
 (defun restart-mode-line () (mode-line) (mode-line))

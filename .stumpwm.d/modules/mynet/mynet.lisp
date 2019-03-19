@@ -4,8 +4,10 @@
 (add-screen-mode-line-formatter #\I 'fmt-eth-icon)
 
 (defun get-state-of (dev)
-  (with-open-file (in (format nil "/sys/class/net/~a/carrier" dev))
-    (read in)))
+  (handler-case
+      (with-open-file (in (format nil "/sys/class/net/~a/carrier" dev))
+        (read in))
+    (sb-int:simple-stream-error () 0)))
 
 (defun wifi-state ()
   (not (zerop (get-state-of "wlp5s0"))))

@@ -4,7 +4,6 @@
 (load-module "mycpu")
 (load-module "mymem")
 (load-module "myhdd")
-(load-module "fcitx")
 (load-module "mynet")
 (load-module "mybattery")
 (load-module "date-time")

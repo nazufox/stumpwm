@@ -3,7 +3,7 @@
 (add-screen-mode-line-formatter #\f 'fmt-fcitx)
 
 (defvar *state-message*
-  '("close" "en" "ja"))
+  '("--" "en" "ja"))
 
 (defun fcitx-state ()
   (nth-value 0 (parse-integer (run-shell-command "fcitx-remote" t))))

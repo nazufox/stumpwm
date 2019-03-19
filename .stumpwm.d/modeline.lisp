@@ -5,6 +5,7 @@
 (load-module "mymem")
 (load-module "myhdd")
 (load-module "fcitx")
+(load-module "mynet")
 (load-module "mybattery")
 (load-module "date-time")
 (load-module "bluetooth")
@@ -35,7 +36,7 @@
             (if (probe-file "/sys/class/power_supply/BAT0") ; battery
                 "  ^B%B^b"
                 "")
-            " | ^B%e  %f^b | ^B%d %o^b "
+            " | ^B%I  %i  %e  %f^b | ^B%d %o^b "
             ))
 
 (setf *mode-line-position* :bottom)

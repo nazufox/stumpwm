@@ -20,5 +20,5 @@
 (defun fmt-bluetooth (ml)
   (declare (ignore ml))
   (if (= (get-devs 'bluetooth) 1)
-      ""
+      "^B^b"
       ""))

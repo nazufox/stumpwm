@@ -16,7 +16,7 @@
 
 (defun fmt-wifi-icon (ml)
   (declare (ignore ml))
-  (if (wifi-state) "直" "睊"))
+  (if (wifi-state) "^B直^b" "睊"))
 (defun fmt-eth-icon (ml)
   (declare (ignore ml))
-  (if (eth-state) "" ""))
+  (if (eth-state) "^B^b" ""))

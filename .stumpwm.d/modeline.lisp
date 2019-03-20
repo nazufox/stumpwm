@@ -31,7 +31,7 @@
       (list " ^B^3%g^n^b | " ; groups
             '(:eval (when (group-windows (current-group)) "^B%W^b |")) ; windows
             "^>"
-            "| ^B %c   %t   %m   %H  %A  盛 %l^b" ; cpu, temp, mem, hdd, audio, backlight
+            "| ^B %c   %t   %m   %H  %A  盛 %l^b" ; cpu, temp, mem, hdd, audio, backlight
             (if (probe-file "/sys/class/power_supply/BAT0") ; battery
                 "  ^B%B^b"
                 "")

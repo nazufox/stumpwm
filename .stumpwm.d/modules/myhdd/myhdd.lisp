@@ -4,6 +4,7 @@
 
 (defun fmt-hdd-usage (ml)
   (declare (ignore ml))
-  (with-input-from-string (in (run-shell-command "df / --output='pcent'" t))
-    (read-line in)
-    (string-left-trim " " (read-line in))))
+  (multiple-value-bind (total free avail)
+      (disk-space "/")
+    (declare (ignore free))
+    (format nil "~d%" (truncate (* 100 (/ (- total avail) total))))))

@@ -1,2 +1,5 @@
 (defpackage #:myhdd
-  (:use #:cl :stumpwm))
+  (:use #:cl
+        #:cffi
+        #:cffi-grovel
+        :stumpwm))

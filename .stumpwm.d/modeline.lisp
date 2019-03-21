@@ -35,7 +35,7 @@
             (if (probe-file "/sys/class/power_supply/BAT0") ; battery
                 "  ^B%B^b"
                 "")
-            " | %I  %i  %e | ^B%d %o^b "
+            " | %I  %i  %e | ^B%d %o^b " ; eth, wifi, bluetooth, date, time
             ))
 
 (setf *mode-line-position* :bottom)

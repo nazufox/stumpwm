@@ -14,7 +14,9 @@
 (defun status-control (&key amount mute)
   (let* ((output (run-shell-command
                   (format nil "amixer sset Master ~a" (or amount mute "toggle")) t))
-         (status (nth-value 1 (parse-status output))))
+         (status (nth-value 1 (parse-status output)))
+         (volume (aref status 0)))
+    (setf (aref status 0) (parse-integer volume))
     (setf *audio-status* status)
     (echo (aref status 0))))
 
@@ -36,7 +38,7 @@
   (declare (ignore ml))
   (let ((volume (aref *audio-status* 0))
         (mute   (aref *audio-status* 1)))
-    (format nil "~c ~a%" (status-icon (parse-integer volume) mute) volume)))
+    (format nil "~c ~a%" (status-icon volume mute) volume)))
 
 (defcommand toggle-mute () ()
   (status-control))

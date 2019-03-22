@@ -14,8 +14,12 @@
 (setf *ignore-wm-inc-hints* t)
 
 (load-module "ttf-fonts")
+;;(setf xft:*font-dirs* (cons (format nil "~a.local/share/fonts/" (user-homedir-pathname))
+;;                            xft:*font-dirs*))
 ;;(xft:cache-fonts)
-(set-font (make-instance 'xft:font :family "Ricty Nerd Font" :subfamily "Bold" :size 12))
+(set-font (list
+           (make-instance 'xft:font :family "uzura_font Nerd Font" :subfamily "Book" :size 13)
+           (make-instance 'xft:font :family "azukifontB Nerd Font" :subfamily "Book" :size 11)))
 
 (defvar *stumpwm-dir* (merge-pathnames #P".stumpwm.d/" (user-homedir-pathname)))
 (defun load-stumpwm-conf (pathspec)

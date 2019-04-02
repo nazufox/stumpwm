@@ -38,10 +38,10 @@
             " | %I  %i  %e | ^B%d %o^b " ; eth, wifi, bluetooth, date, time
             ))
 
-(setf *mode-line-position* :bottom)
+(setf *mode-line-position* :top)
 (setf *mode-line-border-width* 0)
 (setf *mode-line-pad-x* 0)
-(setf *mode-line-pad-y* 4)
+(setf *mode-line-pad-y* 1)
 (setf *mode-line-background-color* "#ef708e")
 (setf *mode-line-foreground-color* "#fbc6d2")
 (setf *mode-line-border-color* "#f8a8bb")

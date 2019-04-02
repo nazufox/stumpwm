@@ -6,7 +6,7 @@
 
 (defun fmt-date (ml)
   (declare (ignore ml))
-  (time-format "%F"))
+  (time-format "%Y-%m-%e"))
 
 (defun fmt-time (ml)
   (declare (ignore ml))

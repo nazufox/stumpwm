@@ -25,6 +25,7 @@
 (defun load-stumpwm-conf (pathspec)
   (load (merge-pathnames pathspec *stumpwm-dir*)))
 
+(load-stumpwm-conf "colors.lisp")
 (load-stumpwm-conf "commands.lisp")
 (load-stumpwm-conf "app-menu.lisp")
 (load-stumpwm-conf "keys.lisp")
@@ -34,5 +35,8 @@
 (load-stumpwm-conf "frames.lisp")
 (load-stumpwm-conf "groups.lisp")
 
-(swank-loader:init)
-(swank:create-server :port 4005 :dont-close t)
+(defvar *swank-started* nil)
+(unless *swank-started*
+  (swank-loader:init)
+  (swank:create-server :port 4005 :dont-close t)
+  (setf *swank-started* t))

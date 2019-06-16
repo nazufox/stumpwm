@@ -42,9 +42,9 @@
 (setf *mode-line-border-width* 0)
 (setf *mode-line-pad-x* 0)
 (setf *mode-line-pad-y* 1)
-(setf *mode-line-background-color* "#ef708e")
-(setf *mode-line-foreground-color* "#fbc6d2")
-(setf *mode-line-border-color* "#f8a8bb")
+(setf *mode-line-background-color* *ml-bg-color*)
+(setf *mode-line-foreground-color* *ml-fg-color*)
+(setf *mode-line-border-color* *ml-border-color*)
 (setf *mode-line-timeout* 5)
 
 ;;(setf swm-gaps:*inner-gaps-size* 10)

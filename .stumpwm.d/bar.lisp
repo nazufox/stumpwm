@@ -1,8 +1,8 @@
 (in-package :stumpwm)
 
-(set-fg-color "#ffffff")
-(set-bg-color "#ef708e")
-(set-border-color "#f8a8bb")
+(set-fg-color *text-fg-color*)
+(set-bg-color *text-bg-color*)
+(set-border-color *border-color*)
 (set-msg-border-width 4)
 (setf *message-window-padding* 30)
 (setf *message-window-y-padding* 7)
